@@ -65,7 +65,7 @@ class ModelLock extends Model
      */
     public function generateToken()
     {
-        return md5((string) $this);
+        return md5((string) $this->model->getRouteKey() . get_class($this->model) . rand());
     }
 
     /**
